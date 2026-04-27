@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 
 project(libmath)
 
-add_library(math STATIC
+add_library(math SHARED
 	src/libmath.cpp
 )
 
@@ -12,7 +12,7 @@ target_include_directories(math
 )
 
 install(TARGETS math
-	ARCHIVE DESTINATION /usr/local/lib
+	LIBRARY DESTINATION /usr/local/lib
 )
 
 install(FILES include/libmath.h
