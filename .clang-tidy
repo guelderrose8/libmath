@@ -1,1 +1,1 @@
-Checks: '-*,altera-unroll-loops'
+Checks: "-*,altera-unroll-loops"

@@ -29,7 +29,7 @@ if(ENABLE_CLANG_FORMAT)
 		src/*.cpp
 	)
 
-	add_custom_target(clang-format-target
+	add_custom_target(libmath-clang-format-target
 	    COMMAND
 		${CLANG_FORMAT_PATH} -style=file -i ${CLANG_FORMAT_SRC}
 	    WORKING_DIRECTORY
@@ -38,7 +38,7 @@ if(ENABLE_CLANG_FORMAT)
 	    	"Formatting with ${CLANG_FORMAT_PATH} ..."
 	)
 
-	add_dependencies(math clang-format-target)
+	add_dependencies(math libmath-clang-format-target)
 endif()
 
 option(ENABLE_CLANG_TIDY "Enable clang-tidy" OFF)
