@@ -49,6 +49,8 @@ int power(int a, int b, int& c)
     if (b < 0)
         return 2;
     c = 1;
+
+#pragma unroll
     for (int i = 0; i < b; ++i)
     {
         long long res = (long long)c * a;
