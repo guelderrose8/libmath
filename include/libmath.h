@@ -2,9 +2,10 @@
 
 namespace libmath
 {
-int addition(int a, int b);
-int subtraction(int a, int b);
-int multiplication(int a, int b);
-int division(int a, int b, int& c);
-int power(int a, int b);
+int addition(int value1, int value2, int& result);
+int subtraction(int value1, int value2, int& result);
+int multiplication(int value1, int value2, int& result);
+int division(int value1, int value2, int& result);
+int power(int value1, int value2, int& result);
+int factorial(int value, int& result);
 } // namespace libmath
