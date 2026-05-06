@@ -7,79 +7,81 @@
 namespace libmath
 {
 
-inline int addition(int a, int b, int& c)
+inline int addition(int value1, int value2, int& result)
 {
-    if ((b > 0 && a > INT_MAX - b) || (b < 0 && a < INT_MIN - b))
+    if ((value2 > 0 && value1 > INT_MAX - value2) ||
+        (value2 < 0 && value1 < INT_MIN - value2))
         return 4;
-    c = a + b;
+    result = value1 + value2;
     return 0;
 }
 
-inline int subtraction(int a, int b, int& c)
+inline int subtraction(int value1, int value2, int& result)
 {
-    if (b == INT_MIN && a >= 0)
+    if (value2 == INT_MIN && value1 >= 0)
         return 4;
-    if ((b < 0 && a > INT_MAX + b) || (b > 0 && a < INT_MIN + b))
+    if ((value2 < 0 && value1 > INT_MAX + value2) ||
+        (value2 > 0 && value1 < INT_MIN + value2))
         return 4;
-    c = a - b;
+    result = value1 - value2;
     return 0;
 }
 
-inline int multiplication(int a, int b, int& c)
+inline int multiplication(int value1, int value2, int& result)
 {
-    long long res = (long long)a * b;
+    long long res = (long long)value1 * value2;
     if (res > INT_MAX || res < INT_MIN)
         return 4;
-    c = (int)res;
+    result = (int)res;
     return 0;
 }
 
-inline int division(int a, int b, int& c)
+inline int division(int value1, int value2, int& result)
 {
-    if (b == 0)
+    if (value2 == 0)
     {
         return -1;
     }
-    if (a == INT_MIN && b == -1)
+    if (value1 == INT_MIN && value2 == -1)
         return 4;
-    c = a / b;
+    result = value1 / value2;
     return 0;
 }
 
-inline int power(int a, int b, int& c)
+inline int power(int value1, int value2, int& result)
 {
-    if (b < 0)
+    if (value2 < 0)
         return 2;
-    c = 1;
+    result = 1;
 
 #pragma unroll
-    for (int i = 0; i < b; ++i)
+    for (int i = 0; i < value2; ++i)
     {
-        long long res = (long long)c * a;
+        long long res = (long long)result * value1;
         if (res > INT_MAX || res < INT_MIN)
             return 4;
-        c = (int)res;
+        result = (int)res;
     }
     return 0;
 }
 
-inline int factorial(int a, int& c)
+inline int factorial(int value, int& result)
 {
-    if (a < 0)
+    if (value < 0)
         return 3;
-    if (a > 12)
+    if (value > 12)
         return 4;
-    if (a == 0 || a == 1)
+    if (value == 0 || value == 1)
     {
-        c = 1;
+        result = 1;
         return 0;
     }
     int prev = 0;
-    int err = factorial(a - 1, prev);
+    int err = factorial(value - 1, prev);
     if (err != 0)
         return err;
 
-    c = a * prev;
+    result = value * prev;
     return 0;
 }
 
